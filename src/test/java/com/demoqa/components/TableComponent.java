@@ -6,6 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TableComponent {
     public void getCellValueByKey(String key, String value) {
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
+        $(".table").$(byText(key)).parent().shouldHave(text(value));
     }
 }

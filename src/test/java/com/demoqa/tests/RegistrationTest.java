@@ -10,8 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationTest {
 
-
-
     @BeforeAll
     static void setup() {
         Configuration.browserSize = "1920x1080";
