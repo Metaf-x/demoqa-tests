@@ -1,9 +1,9 @@
 package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.components.CalendarComponent;
-import com.demoqa.components.ModalComponent;
-import com.demoqa.components.TableComponent;
+import com.demoqa.pages.components.CalendarComponent;
+import com.demoqa.pages.components.ModalComponent;
+import com.demoqa.pages.components.TableComponent;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
