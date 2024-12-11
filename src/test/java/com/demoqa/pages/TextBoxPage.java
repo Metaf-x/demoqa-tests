@@ -22,10 +22,15 @@ public class TextBoxPage {
 
     public TextBoxPage openPage() {
         open("/text-box");
+        return this;
+    }
+
+    public TextBoxPage removeBlockingElements() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
+
 
     public TextBoxPage setUserName(String value) {
         userName.setValue(value);

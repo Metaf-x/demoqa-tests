@@ -9,6 +9,7 @@ public class TextBoxPageObjectTests extends TestBase {
     @Test
     void fillFormTest() {
         textBoxPage.openPage()
+                .removeBlockingElements()
                 .setUserName("Alex")
                 .setUserEmail("alex@egorov.com")
                 .setCurrentAddress("Some street 1")

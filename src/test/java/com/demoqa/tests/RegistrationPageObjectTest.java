@@ -10,6 +10,7 @@ public class RegistrationPageObjectTest extends TestBase {
     @Test
     void fillAllFieldsTest() {
         registrationPage.openPage()
+                .removeBlockingElements()
                 .setFirstName("Jane")
                 .setLastName("Doe")
                 .setEmail("jana@test.com")
