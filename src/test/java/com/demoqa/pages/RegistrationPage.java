@@ -105,9 +105,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage submit() {
+    public void submit() {
         submitBtn.click();
-        return this;
     }
 
     public RegistrationPage submissionCheckSuccess() {
@@ -115,14 +114,12 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage submissionCheckFail() {
+    public void submissionCheckFail() {
         modalComponent.isHidden();
-        return this;
     }
 
-    public RegistrationPage submissionModalMessage(String value) {
+    public void submissionModalMessage(String value) {
         modalComponent.getTitle(value);
-        return this;
     }
 
     public RegistrationPage checkResultTablePairs(String key, String value) {
