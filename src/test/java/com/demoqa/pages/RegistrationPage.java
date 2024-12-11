@@ -29,6 +29,7 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     TableComponent tableComponent = new TableComponent();
     ModalComponent modalComponent = new ModalComponent();
+    PageUtils pageUtils = new PageUtils();
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -36,8 +37,8 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage removeBlockingElements() {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        pageUtils.removeAds();
+        pageUtils.removeFooter();
         return this;
     }
 
