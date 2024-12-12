@@ -7,6 +7,12 @@ import java.time.LocalDate;
 
 public class RegistrationData {
 
+    private static final String[] GENDERS = {"Male", "Female", "Other"};
+    private static final String[] SUBJECTS = {"Computer Science", "Social Studies", "English", "Chemistry"};
+    private static final String[] HOBBIES = {"Sports", "Reading", "Music"};
+    private static final String[] IMAGES = {"test-img.jpg", "2.jpg", "3.jpg"};
+    private static final String[] STATES = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+
     Faker faker = new Faker();
     RandomDate randomBirthday = new RandomDate(LocalDate.of(1900, 1, 1));
 
@@ -14,15 +20,15 @@ public class RegistrationData {
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
             address = faker.address().fullAddress(),
-            gender = faker.options().option("Male", "Female", "Other"),
-            subjects = faker.options().option("Computer Science", "Social Studies", "English", "Chemistry"),
-            hobbies = faker.options().option("Sports", "Reading", "Music"),
+            gender = faker.options().option(GENDERS),
+            subjects = faker.options().option(SUBJECTS),
+            hobbies = faker.options().option(HOBBIES),
             birthDay = randomBirthday.getDay(),
             birthMonth = randomBirthday.getMonth(),
             birthYear = randomBirthday.getYear(),
             phone = faker.numerify("79########"),
-            image = faker.options().option("test-img.jpg", "2.jpg", "3.jpg"),
-            state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
+            image = faker.options().option(IMAGES),
+            state = faker.options().option(STATES),
             city = getRandomCity(state);
 
     private String getRandomCity(String state) {
