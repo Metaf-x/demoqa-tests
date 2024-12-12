@@ -6,6 +6,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomDate {
 
+    private static final DateTimeFormatter DAY_FORMATTER = DateTimeFormatter.ofPattern("dd");
+    private static final DateTimeFormatter MONTH_FORMATTER = DateTimeFormatter.ofPattern("MMMM");
+    private static final DateTimeFormatter YEAR_FORMATTER = DateTimeFormatter.ofPattern("yyyy");
+
     private LocalDate date;
     private LocalDate start;
     private LocalDate end;
@@ -16,6 +20,9 @@ public class RandomDate {
     }
 
     public RandomDate(LocalDate start, LocalDate end) {
+        if (start.isAfter(end)) {
+            throw new IllegalArgumentException("Start date must be before end date");
+        }
         this.start = start;
         this.end = end;
         this.date = this.getDate(this.start, this.end);
@@ -41,16 +48,16 @@ public class RandomDate {
         return LocalDate.ofEpochDay(randomDay);
     }
 
-    public String getDay() {
-        return this.date.format(DateTimeFormatter.ofPattern("dd"));
+    public String getFormattedDay() {
+        return this.date.format(DAY_FORMATTER);
     }
 
-    public String getMonth() {
-        return this.date.format(DateTimeFormatter.ofPattern("MMMM"));
+    public String getFormattedMonth() {
+        return this.date.format(MONTH_FORMATTER);
     }
 
-    public String getYear() {
-        return this.date.format(DateTimeFormatter.ofPattern("yyyy"));
+    public String getFormattedYear() {
+        return this.date.format(YEAR_FORMATTER);
     }
 
 }
