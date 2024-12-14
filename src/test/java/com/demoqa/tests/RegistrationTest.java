@@ -1,7 +1,7 @@
 package com.demoqa.tests;
 
 import com.demoqa.pages.RegistrationPage;
-import com.demoqa.testdata.RegistrationData;
+import com.demoqa.utils.RegistrationData;
 import org.junit.jupiter.api.Test;
 
 public class RegistrationTest extends TestBase {

@@ -1,6 +1,5 @@
-package com.demoqa.testdata;
+package com.demoqa.utils;
 
-import com.demoqa.utils.RandomDate;
 import com.github.javafaker.Faker;
 
 import java.time.LocalDate;
