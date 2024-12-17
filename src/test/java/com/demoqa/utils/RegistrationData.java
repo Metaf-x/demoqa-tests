@@ -2,8 +2,6 @@ package com.demoqa.utils;
 
 import com.github.javafaker.Faker;
 
-import java.time.LocalDate;
-
 public class RegistrationData {
 
     private static final String[] GENDERS = {"Male", "Female", "Other"};
@@ -13,7 +11,7 @@ public class RegistrationData {
     private static final String[] STATES = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
 
     Faker faker = new Faker();
-    RandomDate randomBirthday = new RandomDate(LocalDate.of(1900, 1, 1));
+    RandomBirthday randomBirthday = new RandomBirthday(18, 65);
 
     public String firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),

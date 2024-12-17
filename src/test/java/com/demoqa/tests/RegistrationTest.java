@@ -43,7 +43,6 @@ public class RegistrationTest extends TestBase {
                 .checkResultTablePairs("Picture", data.image)
                 .checkResultTablePairs("Address", data.address)
                 .checkResultTablePairs("State and City", data.state + " " + data.city);
-//      sleep(600_000);
     }
 
     @Test
