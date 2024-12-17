@@ -4,16 +4,21 @@ import com.github.javafaker.Faker;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class RandomBirthday {
-    private static final DateTimeFormatter DAY_FORMATTER = DateTimeFormatter.ofPattern("dd");
-    private static final DateTimeFormatter MONTH_FORMATTER = DateTimeFormatter.ofPattern("MMMM");
-    private static final DateTimeFormatter YEAR_FORMATTER = DateTimeFormatter.ofPattern("yyyy");
 
     private final int minAge;
     private final int maxAge;
     private final Faker faker;
 
+    /**
+     * Generates a random birthday date within the specified age range.
+     *
+     * @param minAge The minimum age for the birthday.
+     * @param maxAge The maximum age for the birthday.
+     * @throws IllegalArgumentException if minAge is greater than maxAge.
+     */
     public RandomBirthday(int minAge, int maxAge) {
         if (minAge > maxAge) {
             throw new IllegalArgumentException("Start age must be before end age");
@@ -23,19 +28,19 @@ public class RandomBirthday {
         this.faker = new Faker();
     }
 
-    LocalDate getDate() {
+    private LocalDate getDate() {
         return this.faker.date().birthday(this.minAge, this.maxAge).toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
     }
 
-    String getFormattedYear() {
-        return this.getDate().format(YEAR_FORMATTER);
+    public String getFormattedYear() {
+        return getDate().format(DateTimeFormatter.ofPattern("yyyy", Locale.ENGLISH));
     }
 
-    String getFormattedMonth() {
-            return this.getDate().format(MONTH_FORMATTER);
+    public String getFormattedMonth() {
+        return getDate().format(DateTimeFormatter.ofPattern("MMMM", Locale.ENGLISH));
     }
 
-    String getFormattedDay() {
-        return this.getDate().format(DAY_FORMATTER);
+    public String getFormattedDay() {
+        return getDate().format(DateTimeFormatter.ofPattern("dd", Locale.ENGLISH));
     }
 }

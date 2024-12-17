@@ -10,6 +10,8 @@ public class RegistrationData {
     private static final String[] IMAGES = {"test-img.jpg", "2.jpg", "3.jpg"};
     private static final String[] STATES = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
 
+    private final String phoneFormat = "79########";
+
     Faker faker = new Faker();
     RandomBirthday randomBirthday = new RandomBirthday(18, 65);
 
@@ -23,7 +25,7 @@ public class RegistrationData {
             birthDay = randomBirthday.getFormattedDay(),
             birthMonth = randomBirthday.getFormattedMonth(),
             birthYear = randomBirthday.getFormattedYear(),
-            phone = faker.numerify("79########"),
+            phone = faker.numerify(phoneFormat),
             image = faker.options().option(IMAGES),
             state = faker.options().option(STATES),
             city = getRandomCity(state);
